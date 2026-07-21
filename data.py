@@ -31,5 +31,8 @@ recurring_calendar = {
 RECURRING_TYPES = {"rent", "subscriptions", "income"}
 
 def get_residual_history(df):
-    return df.loc[~df["type"].isin(RECURRING_TYPES), "amount"]
+    res = df.loc[~df["type"].isin(RECURRING_TYPES)]
+    daily = res.groupby("date")["amount"].sum()
+    full_index = pd.date_range(df["date"].min(), df["date"].max(), freq="D")
+    return daily.reindex(full_index, fill_value=0.0)
 
