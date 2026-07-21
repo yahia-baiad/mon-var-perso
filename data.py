@@ -4,7 +4,7 @@ import pandas as pd
 def generate_synthetic_transactions(start_date="2024-01-01",n_months=12, seed=42):
     rng = np.random.default_rng(seed)
     end_date = pd.Timestamp(start_date) + pd.DateOffset(months=n_months)
-dates = pd.date_range(start=start_date, end=end_date, freq="D", inclusive="left")
+    dates = pd.date_range(start=start_date, end=end_date, freq="D", inclusive="left")
     rows = []
 
     for date in dates:
