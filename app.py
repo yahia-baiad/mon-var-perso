@@ -17,7 +17,7 @@ horizon = st.slider("Horizon (jours)", 30, 120, 60)
 confidence = st.select_slider("Niveau de confiance", options=[0.90, 0.95, 0.99], value=0.95)
 
 if st.button("Lancer la simulation"):
-    paths = simulate_balance_paths(residual_history, recurring_calendar, current_balance, horizon)
+    paths = simulate_balance_paths(residual_history, recurring_calendar, current_balance, horizon, seed=None)
     var, cvar, prob_neg = compute_var_cvar(paths, confidence)
 
     col1, col2, col3 = st.columns(3)
