@@ -75,4 +75,4 @@ Natural extensions would be a block bootstrap to preserve temporal structure, or
 
 ## Stack
 
-Python · NumPy · pandas · Streamlit · Plotly
+Python / NumPy / pandas / Streamlit / Plotly
